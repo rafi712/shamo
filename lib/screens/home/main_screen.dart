@@ -62,7 +62,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 BottomNavigationBarItem(
                   icon: Container(
-                    margin: const EdgeInsets.only(top: 25, bottom: 10, right: 20),
+                    margin: const EdgeInsets.only(top: 20, bottom: 10, right: 20),
                     child: Image.asset(
                       'assets/icon_chat.png',
                       width: 22,

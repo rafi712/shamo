@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/common/theme.dart';
+import 'package:shamo/widgets/product_card.dart';
+import 'package:shamo/widgets/product_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -154,12 +156,60 @@ class HomeScreen extends StatelessWidget {
       );
     }
 
+    Widget title(String title) {
+      return Container(
+        margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+        child: Text(
+          title,
+          style: primaryTextStyle.copyWith(
+            fontSize: 22,
+            fontWeight: semibold
+          )
+        ),
+      );
+    }
+
+    Widget popularProducts() {
+      return SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            SizedBox(width: defaultMargin),
+            const ProductCard(),
+            const ProductCard(),
+            const ProductCard(),
+          ],
+        ),
+      );
+    }
+
+    Widget newArrivals() {
+      return Container(
+        margin: const EdgeInsets.only(top: 14),
+        child: Column(
+          children: const [
+            ProductTile(),
+            ProductTile(),
+            ProductTile(),
+          ],
+        ),
+      );
+    }
+
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           header(),
-          const SizedBox(height: 30),
-          categories()
+          SizedBox(height: defaultMargin),
+          categories(),
+          SizedBox(height: defaultMargin),
+          title('Popular Products'),
+          const SizedBox(height: 14),
+          popularProducts(),
+          SizedBox(height: defaultMargin),
+          title('New Arrivals'),
+          newArrivals(),
         ],
       ),
     );
