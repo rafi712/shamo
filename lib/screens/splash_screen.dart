@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shamo/common/theme.dart';
+import 'package:shamo/screens/sign_in_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  static const route = '/';
   const SplashScreen({Key? key}) : super(key: key);
 
   @override
@@ -14,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    Timer(const Duration(seconds: 3), () => Navigator.pushNamed(context, '/sign-in'));
+    Timer(const Duration(seconds: 3), () => Navigator.pushNamed(context, SignInScreen.route));
     super.initState();
   }
 

@@ -6,6 +6,7 @@ import 'package:shamo/screens/home/profile_screen.dart';
 import 'package:shamo/screens/home/wishlist_screen.dart';
 
 class MainScreen extends StatefulWidget {
+  static const route = '/home';
   const MainScreen({Key? key}) : super(key: key);
 
   @override

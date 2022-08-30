@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/common/theme.dart';
+import 'package:shamo/screens/home/main_screen.dart';
+import 'package:shamo/screens/sign_up_screen.dart';
+import 'package:shamo/widgets/primary_button.dart';
 
 class SignInScreen extends StatelessWidget {
+  static const route = '/sign-in';
   const SignInScreen({Key? key}) : super(key: key);
 
   @override
@@ -81,20 +85,8 @@ class SignInScreen extends StatelessWidget {
     }
     
     Widget signInButton() {
-      return ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/home');
-        },
-        style: ElevatedButton.styleFrom(
-          elevation: 0,
-          primary: primaryColor,
-          textStyle: primaryTextStyle,
-          minimumSize: const Size(double.infinity, 50),
-          splashFactory: NoSplash.splashFactory,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12)
-          ),
-        ),
+      return PrimaryButton(
+        size: const Size(double.infinity, 50),
         child: Text(
           'Sign In',
           style: primaryTextStyle.copyWith(
@@ -102,6 +94,9 @@ class SignInScreen extends StatelessWidget {
             fontSize: 16
           ),
         ),
+        onPressed: (){
+          Navigator.pushNamed(context, MainScreen.route);
+        }
       );
     }
     
@@ -114,7 +109,7 @@ class SignInScreen extends StatelessWidget {
             style: subtitleTextStyle,
           ),
           GestureDetector(
-            onTap: () => Navigator.pushNamed(context, '/sign-up'),
+            onTap: () => Navigator.pushNamed(context, SignUpScreen.route),
             child: Text(
               'Sign Up',
               style: purpleTextStyle.copyWith(
@@ -128,12 +123,12 @@ class SignInScreen extends StatelessWidget {
 
 
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: bg1Color,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: SafeArea(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: bg1Color,
+        body: SafeArea(
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: defaultMargin),
             child: Column(

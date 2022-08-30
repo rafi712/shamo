@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/common/theme.dart';
+import 'package:shamo/widgets/primary_button.dart';
 
 class SignUpScreen extends StatelessWidget {
+  static const route = '/sign-up';
   const SignUpScreen({Key? key}) : super(key: key);
 
   @override
@@ -89,24 +91,14 @@ class SignUpScreen extends StatelessWidget {
     }
     
     Widget signUpButton() {
-      return ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          elevation: 0,
-          primary: primaryColor,
-          textStyle: primaryTextStyle,
-          minimumSize: const Size(double.infinity, 50),
-          splashFactory: NoSplash.splashFactory,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12)
-          ),
-        ),
+      return PrimaryButton(
+        size: const Size(double.infinity, 50),
         child: Text(
           'Sign Up',
           style: primaryTextStyle.copyWith(
             fontWeight: medium,
             fontSize: 16
-          ),
+          )
         ),
       );
     }
@@ -134,11 +126,11 @@ class SignUpScreen extends StatelessWidget {
 
 
 
-    return Scaffold(
-      backgroundColor: bg1Color,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: SafeArea(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        backgroundColor: bg1Color,
+        body: SafeArea(
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: defaultMargin),
             child: SingleChildScrollView(

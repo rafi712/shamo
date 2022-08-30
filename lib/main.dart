@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/router/app_router.dart';
+import 'package:shamo/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: '/',
+      initialRoute: SplashScreen.route,
     );
   }
 }
